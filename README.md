@@ -4,6 +4,7 @@ Es una herramienta creada usando Node.js, que lee y analiza archivos en formato 
 
 ## Diagrama de flujo
 
+![hola](./src/img/dflujo.png)
 
 ## Documentación técnica de la librería:
 
