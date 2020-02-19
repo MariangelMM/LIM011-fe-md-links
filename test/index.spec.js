@@ -5,13 +5,6 @@ const mdlinks = require('../src/md-links');
 const estatus = require('../src/stats');
 const funcionCli = require('../src/md-linksCli');
 
-
-const fetchMock = require('../__mock__/node-fetch');
-
-fetchMock
-  .mock('https://developers.google.com/v8/', 200)
-  .mock('https://nodejs.org/esesd/', 404);
-
 const ruta = path.join(process.cwd(), 'test-readme', 'node.md');
 
 const linkvalidados = [
@@ -115,7 +108,7 @@ describe('Verificar si dentro de la carpeta hay un archivos', () => {
       '.git',
       '.gitignore',
       'README.md',
-      '__mock__',
+      '__mocks__',
       'coverage',
       'jest.config.js',
       'node_modules',

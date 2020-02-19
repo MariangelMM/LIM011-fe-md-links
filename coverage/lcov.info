@@ -1,16 +1,4 @@
 TN:
-SF:__mock__/node-fetch.js
-FNF:0
-FNH:0
-DA:1,1
-DA:3,1
-DA:4,1
-LF:3
-LH:3
-BRF:0
-BRH:0
-end_of_record
-TN:
 SF:src/functions.js
 FN:5,(anonymous_0)
 FN:9,(anonymous_1)
