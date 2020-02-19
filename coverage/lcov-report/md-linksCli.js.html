@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">65.52% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>29/29</span>
+                <span class='fraction'>19/29</span>
             </div>
         
             
@@ -37,16 +37,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">40% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>10/10</span>
+                <span class='fraction'>4/10</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">65.52% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>29/29</span>
+                <span class='fraction'>19/29</span>
             </div>
         
             
@@ -55,7 +55,7 @@
             Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
         </p>
     </div>
-    <div class='status-line high'></div>
+    <div class='status-line medium'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -113,28 +113,28 @@
 <span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
@@ -160,28 +160,28 @@ const funcionCli = (ruta, opcion, opcion2) =&gt; {
   if (fs.existsSync(ruta)) {
     if (opcion === '--stats' &amp;&amp; opcion2 === '--validate') {
       return mdlinks.mdLinks(ruta, true)
-        .then((resp) =&gt; stats.statsValidado(resp))
-        .then((res) =&gt; {
-          const string = `Total: ${res.Total}\nUnique: ${res.Unique}\nBroken: ${res.Broken}`;
-          return string;
+        .then(<span class="fstat-no" title="function not covered" >(r</span>esp) =&gt; <span class="cstat-no" title="statement not covered" >stats.statsValidado(resp))</span>
+        .then(<span class="fstat-no" title="function not covered" >(r</span>es) =&gt; {
+          const string = <span class="cstat-no" title="statement not covered" >`Total: ${res.Total}\nUnique: ${res.Unique}\nBroken: ${res.Broken}`;</span>
+<span class="cstat-no" title="statement not covered" >          return string;</span>
         });
     }
     if (opcion === '--validate') {
       return mdlinks.mdLinks(ruta, true)
-        .then((res) =&gt; {
-          let validLinks = '';
-          res.forEach((elemento) =&gt; {
-            validLinks += `File:${elemento.file} Href:${elemento.href} Mensaje:${elemento.message} Estatus:${elemento.status} Texto:${elemento.text}\n`;
+        .then(<span class="fstat-no" title="function not covered" >(r</span>es) =&gt; {
+          let validLinks = <span class="cstat-no" title="statement not covered" >'';</span>
+<span class="cstat-no" title="statement not covered" >          res.forEach(<span class="fstat-no" title="function not covered" >(e</span>lemento) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >            validLinks += `File:${elemento.file} Href:${elemento.href} Mensaje:${elemento.message} Estatus:${elemento.status} Texto:${elemento.text}\n`;</span>
           });
-          return validLinks;
+<span class="cstat-no" title="statement not covered" >          return validLinks;</span>
         });
     }
     if (opcion === '--stats') {
       return mdlinks.mdLinks(ruta, true)
-        .then((resp) =&gt; stats.stats(resp))
-        .then((res) =&gt; {
-          const string = `Total: ${res.Total}\nUnique: ${res.Unique}`;
-          return string;
+        .then(<span class="fstat-no" title="function not covered" >(r</span>esp) =&gt; <span class="cstat-no" title="statement not covered" >stats.stats(resp))</span>
+        .then(<span class="fstat-no" title="function not covered" >(r</span>es) =&gt; {
+          const string = <span class="cstat-no" title="statement not covered" >`Total: ${res.Total}\nUnique: ${res.Unique}`;</span>
+<span class="cstat-no" title="statement not covered" >          return string;</span>
         });
     }
     return mdlinks.mdLinks(ruta, false)
@@ -205,7 +205,7 @@ module.exports = funcionCli;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Tue Feb 18 2020 20:07:43 GMT-0500 (GMT-05:00)
+                at Tue Feb 18 2020 20:17:47 GMT-0500 (GMT-05:00)
             </div>
         </div>
         <script src="prettify.js"></script>

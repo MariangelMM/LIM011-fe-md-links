@@ -1,6 +1,6 @@
 
-const funciones = require('../src/index');
-const valida = require('../src/validar');
+const funciones = require('./functions');
+const valida = require('./validate');
 
 const mdLinks = (path, options) => {
   const promesaMDLinks = new Promise((resolve) => {

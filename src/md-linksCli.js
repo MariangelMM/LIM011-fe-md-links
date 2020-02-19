@@ -1,6 +1,6 @@
 const fs = require('fs');
 const mdlinks = require('./md-links');
-const stats = require('./estatus');
+const stats = require('./stats');
 
 
 const funcionCli = (ruta, opcion, opcion2) => {
