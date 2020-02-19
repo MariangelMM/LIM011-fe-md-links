@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1582076038595" clover="3.2.0">
-  <project timestamp="1582076038596" name="All files">
-    <metrics statements="128" coveredstatements="128" conditionals="26" coveredconditionals="26" methods="33" coveredmethods="33" elements="187" coveredelements="187" complexity="0" loc="128" ncloc="128" packages="2" files="6" classes="6"/>
+<coverage generated="1582083819413" clover="3.2.0">
+  <project timestamp="1582083819414" name="All files">
+    <metrics statements="126" coveredstatements="126" conditionals="26" coveredconditionals="26" methods="33" coveredmethods="33" elements="185" coveredelements="185" complexity="0" loc="126" ncloc="126" packages="2" files="6" classes="6"/>
     <package name="__mock__">
       <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="node-fetch.js" path="/home/laboratoria/Escritorio/LIM011-fe-md-links/__mock__/node-fetch.js">
@@ -12,7 +12,7 @@
       </file>
     </package>
     <package name="src">
-      <metrics statements="125" coveredstatements="125" conditionals="26" coveredconditionals="26" methods="33" coveredmethods="33"/>
+      <metrics statements="123" coveredstatements="123" conditionals="26" coveredconditionals="26" methods="33" coveredmethods="33"/>
       <file name="functions.js" path="/home/laboratoria/Escritorio/LIM011-fe-md-links/src/functions.js">
         <metrics statements="50" coveredstatements="50" conditionals="8" coveredconditionals="8" methods="12" coveredmethods="12"/>
         <line num="1" count="1" type="stmt"/>
@@ -24,50 +24,50 @@
         <line num="9" count="1" type="stmt"/>
         <line num="10" count="7" type="stmt"/>
         <line num="11" count="7" type="stmt"/>
-        <line num="16" count="1" type="stmt"/>
+        <line num="14" count="1" type="stmt"/>
+        <line num="15" count="13" type="stmt"/>
+        <line num="16" count="13" type="stmt"/>
         <line num="17" count="13" type="stmt"/>
-        <line num="18" count="13" type="stmt"/>
-        <line num="19" count="13" type="stmt"/>
-        <line num="22" count="1" type="stmt"/>
+        <line num="20" count="1" type="stmt"/>
+        <line num="21" count="13" type="stmt"/>
+        <line num="22" count="13" type="stmt"/>
         <line num="23" count="13" type="stmt"/>
-        <line num="24" count="13" type="stmt"/>
-        <line num="25" count="13" type="stmt"/>
-        <line num="28" count="1" type="stmt"/>
-        <line num="29" count="12" type="stmt"/>
-        <line num="30" count="12" type="cond" truecount="2" falsecount="0"/>
-        <line num="31" count="11" type="stmt"/>
-        <line num="33" count="1" type="stmt"/>
-        <line num="36" count="1" type="stmt"/>
-        <line num="37" count="2" type="stmt"/>
-        <line num="38" count="2" type="stmt"/>
-        <line num="41" count="1" type="stmt"/>
-        <line num="42" count="11" type="stmt"/>
-        <line num="43" count="11" type="cond" truecount="4" falsecount="0"/>
-        <line num="44" count="10" type="stmt"/>
-        <line num="45" count="11" type="cond" truecount="2" falsecount="0"/>
-        <line num="46" count="1" type="stmt"/>
+        <line num="26" count="1" type="stmt"/>
+        <line num="27" count="12" type="stmt"/>
+        <line num="28" count="12" type="cond" truecount="2" falsecount="0"/>
+        <line num="29" count="11" type="stmt"/>
+        <line num="31" count="1" type="stmt"/>
+        <line num="34" count="1" type="stmt"/>
+        <line num="35" count="2" type="stmt"/>
+        <line num="36" count="2" type="stmt"/>
+        <line num="39" count="1" type="stmt"/>
+        <line num="40" count="11" type="stmt"/>
+        <line num="41" count="11" type="cond" truecount="4" falsecount="0"/>
+        <line num="42" count="10" type="stmt"/>
+        <line num="43" count="11" type="cond" truecount="2" falsecount="0"/>
+        <line num="44" count="1" type="stmt"/>
+        <line num="45" count="2" type="stmt"/>
+        <line num="46" count="2" type="stmt"/>
         <line num="47" count="2" type="stmt"/>
-        <line num="48" count="2" type="stmt"/>
-        <line num="49" count="2" type="stmt"/>
-        <line num="51" count="1" type="stmt"/>
-        <line num="53" count="10" type="stmt"/>
-        <line num="56" count="1" type="stmt"/>
-        <line num="57" count="9" type="stmt"/>
-        <line num="58" count="9" type="stmt"/>
-        <line num="61" count="1" type="stmt"/>
+        <line num="49" count="1" type="stmt"/>
+        <line num="51" count="10" type="stmt"/>
+        <line num="54" count="1" type="stmt"/>
+        <line num="55" count="9" type="stmt"/>
+        <line num="56" count="9" type="stmt"/>
+        <line num="59" count="1" type="stmt"/>
+        <line num="60" count="8" type="stmt"/>
+        <line num="61" count="8" type="stmt"/>
         <line num="62" count="8" type="stmt"/>
         <line num="63" count="8" type="stmt"/>
         <line num="64" count="8" type="stmt"/>
-        <line num="65" count="8" type="stmt"/>
-        <line num="66" count="8" type="stmt"/>
-        <line num="67" count="16" type="stmt"/>
+        <line num="65" count="16" type="stmt"/>
+        <line num="71" count="8" type="stmt"/>
         <line num="73" count="8" type="stmt"/>
-        <line num="75" count="8" type="stmt"/>
-        <line num="79" count="1" type="stmt"/>
-        <line num="91" count="1" type="stmt"/>
+        <line num="77" count="1" type="stmt"/>
+        <line num="89" count="1" type="stmt"/>
       </file>
       <file name="md-links.js" path="/home/laboratoria/Escritorio/LIM011-fe-md-links/src/md-links.js">
-        <metrics statements="12" coveredstatements="12" conditionals="2" coveredconditionals="2" methods="3" coveredmethods="3"/>
+        <metrics statements="11" coveredstatements="11" conditionals="2" coveredconditionals="2" methods="3" coveredmethods="3"/>
         <line num="2" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
         <line num="5" count="1" type="stmt"/>
@@ -79,7 +79,6 @@
         <line num="12" count="2" type="stmt"/>
         <line num="15" count="6" type="stmt"/>
         <line num="22" count="1" type="stmt"/>
-        <line num="26" count="1" type="stmt"/>
       </file>
       <file name="md-linksCli.js" path="/home/laboratoria/Escritorio/LIM011-fe-md-links/src/md-linksCli.js">
         <metrics statements="29" coveredstatements="29" conditionals="10" coveredconditionals="10" methods="10" coveredmethods="10"/>
@@ -136,7 +135,7 @@
         <line num="37" count="1" type="stmt"/>
       </file>
       <file name="validate.js" path="/home/laboratoria/Escritorio/LIM011-fe-md-links/src/validate.js">
-        <metrics statements="15" coveredstatements="15" conditionals="6" coveredconditionals="6" methods="3" coveredmethods="3"/>
+        <metrics statements="14" coveredstatements="14" conditionals="6" coveredconditionals="6" methods="3" coveredmethods="3"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
         <line num="4" count="1" type="stmt"/>
@@ -151,7 +150,6 @@
         <line num="23" count="10" type="stmt"/>
         <line num="26" count="5" type="stmt"/>
         <line num="33" count="1" type="stmt"/>
-        <line num="38" count="1" type="stmt"/>
       </file>
     </package>
   </project>

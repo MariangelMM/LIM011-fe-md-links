@@ -4,10 +4,10 @@ const stats = (data) => {
   data.forEach((element) => {
     arrLinks.push(element.href);
   });
-  const unicos = new Set(arrLinks);
+  const linksUnicos = new Set(arrLinks);
   const obj = {
     Total: totalLinks,
-    Unique: unicos.size,
+    Unique: linksUnicos.size,
   };
   return obj;
 };
@@ -20,10 +20,10 @@ const statsValidado = (data) => {
   data.forEach((elemento) => {
     arrLinks.push(elemento.href);
   });
-  const unicos = new Set(arrLinks);
+  const linksUnicos = new Set(arrLinks);
   const obj = {
     Total: totalLinks,
-    Unique: unicos.size,
+    Unique: linksUnicos.size,
     Broken: brokenLinks,
   };
   return obj;

@@ -47,71 +47,71 @@ const links = [
 
 describe('Leyendo la ruta', () => {
   it('Deberia ser una función', () => {
-    expect(typeof funciones.exisRutaAbsoluta).toBe('function');
+    expect(typeof funciones.esRutaAbsoluta).toBe('function');
   });
   it('Deberia retornar false si la ruta no existe', () => {
-    expect(funciones.exisRutaAbsoluta('.')).toBe(false);
+    expect(funciones.esRutaAbsoluta('.')).toBe(false);
   });
   it('Deberia retornar true si la ruta es absoluta', () => {
-    expect(funciones.exisRutaAbsoluta(path.join(process.cwd(), 'test-readme', 'mardown.md'))).toBe(true);
+    expect(funciones.esRutaAbsoluta(path.join(process.cwd(), 'test-readme', 'mardown.md'))).toBe(true);
   });
   it('Deberia retornar false si la ruta no es absoluta', () => {
-    expect(funciones.exisRutaAbsoluta('package.json')).toBe(false);
+    expect(funciones.esRutaAbsoluta('package.json')).toBe(false);
   });
 });
 
 describe('Convertir ruta', () => {
   it('Deberia ser una función', () => {
-    expect(typeof funciones.converRutaAbsoluta).toBe('function');
+    expect(typeof funciones.convertirRutaAbsoluta).toBe('function');
   });
   it('Deberia convertir una ruta relativa a ruta absoluta', () => {
-    expect(funciones.converRutaAbsoluta('mardown.md')).toBe(path.join(process.cwd(), 'mardown.md'));
+    expect(funciones.convertirRutaAbsoluta('mardown.md')).toBe(path.join(process.cwd(), 'mardown.md'));
   });
 });
 
 describe('Verificar si la ruta es un archivo', () => {
   it('Deberia ser una función', () => {
-    expect(typeof funciones.verificaArchivo).toBe('function');
+    expect(typeof funciones.verificarSiEsArchivo).toBe('function');
   });
   it('Deberia retornar true si la ruta es un archivo', () => {
-    expect(funciones.verificaArchivo(path.join(process.cwd(), 'test-readme', 'mardown.md'))).toBe(true);
+    expect(funciones.verificarSiEsArchivo(path.join(process.cwd(), 'test-readme', 'mardown.md'))).toBe(true);
   });
   it('Deberia retornar false si la ruta es un directorio', () => {
-    expect(funciones.verificaArchivo(path.join(process.cwd(), 'test-readme'))).toBe(false);
+    expect(funciones.verificarSiEsArchivo(path.join(process.cwd(), 'test-readme'))).toBe(false);
   });
 });
 
 describe('Verificar si la ruta es una carpeta', () => {
   it('Deberia ser una función', () => {
-    expect(typeof funciones.verificaCarpeta).toBe('function');
+    expect(typeof funciones.verificarSiEsCarpeta).toBe('function');
   });
   it('Deberia retornar false si la ruta es un archivo', () => {
-    expect(funciones.verificaCarpeta(path.join(process.cwd(), 'test-readme', 'mardown.md'))).toBe(false);
+    expect(funciones.verificarSiEsCarpeta(path.join(process.cwd(), 'test-readme', 'mardown.md'))).toBe(false);
   });
   it('Deberia retornar true si la ruta es un directorio', () => {
-    expect(funciones.verificaCarpeta(path.join(process.cwd(), 'test-readme'))).toBe(true);
+    expect(funciones.verificarSiEsCarpeta(path.join(process.cwd(), 'test-readme'))).toBe(true);
   });
 });
 
 describe('Verificar si es un archivo mardown', () => {
   it('Deberia ser una función', () => {
-    expect(typeof funciones.esUnArchivoMD).toBe('function');
+    expect(typeof funciones.esArchivoMardown).toBe('function');
   });
   it('Deberia retornar true si la ruta es un archivo MD', () => {
-    expect(funciones.esUnArchivoMD(path.join(process.cwd(), 'test-readme', 'mardown.md'))).toBe(true);
+    expect(funciones.esArchivoMardown(path.join(process.cwd(), 'test-readme', 'mardown.md'))).toBe(true);
   });
   it('Deberia retornar false si la ruta no es un archivo MD', () => {
-    expect(funciones.esUnArchivoMD(path.join(process.cwd(), 'package.json'))).toBe(false);
+    expect(funciones.esArchivoMardown(path.join(process.cwd(), 'package.json'))).toBe(false);
   });
 });
 
 
 describe('Verificar si dentro de la carpeta hay un archivos', () => {
   it('Deberia ser una función', () => {
-    expect(typeof funciones.revisaDirectorio).toBe('function');
+    expect(typeof funciones.revisarDirectorio).toBe('function');
   });
   it('Deberia retornar un arreglo con los archivos', () => {
-    expect(funciones.revisaDirectorio(path.join(process.cwd()))).toEqual(['.eslintrc.js',
+    expect(funciones.revisarDirectorio(path.join(process.cwd()))).toEqual(['.eslintrc.js',
       '.git',
       '.gitignore',
       'README.md',
@@ -129,28 +129,28 @@ describe('Verificar si dentro de la carpeta hay un archivos', () => {
 
 describe('Verifica si en la ruta hay archivos mardown', () => {
   it('Deberia ser una función', () => {
-    expect(typeof funciones.buscaArchivoMD).toBe('function');
+    expect(typeof funciones.buscarArchivoMardown).toBe('function');
   });
   it('Deberia retornar true las rutas de los archivos mardown', () => {
-    expect(funciones.buscaArchivoMD(path.join(process.cwd(), 'test-readme'))).toStrictEqual(['/home/laboratoria/Escritorio/LIM011-fe-md-links/test-readme/mardown.md', '/home/laboratoria/Escritorio/LIM011-fe-md-links/test-readme/node.md']);
+    expect(funciones.buscarArchivoMardown(path.join(process.cwd(), 'test-readme'))).toStrictEqual(['/home/laboratoria/Escritorio/LIM011-fe-md-links/test-readme/mardown.md', '/home/laboratoria/Escritorio/LIM011-fe-md-links/test-readme/node.md']);
   });
 });
 
 describe('Leer informacion del archivo', () => {
   it('Deberia ser una función', () => {
-    expect(typeof funciones.leeArchivos).toBe('function');
+    expect(typeof funciones.leerContenidoArchivoMardown).toBe('function');
   });
   it('Deberia retornar la informacion del archivo', () => {
-    expect(funciones.leeArchivos(ruta)).toStrictEqual('# Node \n[Node.js](https://nodejs.org/esesd/) es un entorno de ejecución para JavaScript\nconstruido con el [motor de JavaScript V8 de Chrome](https://developers.google.com/v8/).\nEsto nos va a permitir ejecutar JavaScript en el entorno del sistema operativo,\nya sea tu máquina o un servidor, lo cual nos abre las puertas para poder\ninteractuar con el sistema en sí, archivos, redes, ...');
+    expect(funciones.leerContenidoArchivoMardown(ruta)).toStrictEqual('# Node \n[Node.js](https://nodejs.org/esesd/) es un entorno de ejecución para JavaScript\nconstruido con el [motor de JavaScript V8 de Chrome](https://developers.google.com/v8/).\nEsto nos va a permitir ejecutar JavaScript en el entorno del sistema operativo,\nya sea tu máquina o un servidor, lo cual nos abre las puertas para poder\ninteractuar con el sistema en sí, archivos, redes, ...');
   });
 });
 
 describe('Extrae informacion de archivo', () => {
   it('Deberia ser una función', () => {
-    expect(typeof funciones.leyendoInfoArchivos).toBe('function');
+    expect(typeof funciones.extraerLinksArchivos).toBe('function');
   });
   it('Deberia retornar los links dentro de un archivo MD', () => {
-    expect(funciones.leyendoInfoArchivos(path.join(process.cwd(), 'test-readme', 'node.md')))
+    expect(funciones.extraerLinksArchivos(path.join(process.cwd(), 'test-readme', 'node.md')))
       .toStrictEqual([
         {
           href: 'https://nodejs.org/esesd/',
@@ -168,10 +168,10 @@ describe('Extrae informacion de archivo', () => {
 
 describe('Valida los links del archivo', () => {
   it('Deberia ser una función', () => {
-    expect(typeof validar.validaLinks).toBe('function');
+    expect(typeof validar).toBe('function');
   });
   it('Deberia retornar un array con los links validados', (done) => {
-    validar.validaLinks(ruta).then((data) => {
+    validar(ruta).then((data) => {
       expect(data).toStrictEqual(linkvalidados);
       done();
     });
@@ -180,16 +180,16 @@ describe('Valida los links del archivo', () => {
 
 describe('Recibe la opcion para validar o no los links', () => {
   it('Deberia ser una función', () => {
-    expect(typeof mdlinks.mdLinks).toBe('function');
+    expect(typeof mdlinks).toBe('function');
   });
   it('Si la opcion es true devuelve los links validados', (done) => {
-    mdlinks.mdLinks(ruta, true).then((data) => {
+    mdlinks(ruta, true).then((data) => {
       expect(data).toStrictEqual(linkvalidados);
       done();
     });
   });
   it('Si la opcion es false devuelve los links', (done) => {
-    mdlinks.mdLinks(ruta, false).then((data) => {
+    mdlinks(ruta, false).then((data) => {
       expect(data).toStrictEqual(links);
       done();
     });

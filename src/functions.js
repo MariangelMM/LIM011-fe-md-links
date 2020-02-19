@@ -2,90 +2,88 @@ const path = require('path');
 const fs = require('fs');
 const marked = require('marked');
 
-const rutaAbsoluta = (ruta) => {
-  const valor = path.isAbsolute(ruta);
-  return valor;
+const esRutaAbsoluta = (ruta) => {
+  const esAbsoluta = path.isAbsolute(ruta);
+  return esAbsoluta;
 };
-const convertirAbsoluta = (ruta) => {
-  const convertir = path.resolve(ruta);
-  return convertir;
+const convertirRutaAbsoluta = (ruta) => {
+  const convertirAb = path.resolve(ruta);
+  return convertirAb;
 };
-
-// console.log(convertirAbsoluta('README.md'));
 
 const verificarSiEsArchivo = (ruta) => {
   const verifArchivo = fs.lstatSync(ruta);
-  const archivo = verifArchivo.isFile();
-  return archivo;
+  const esArchivo = verifArchivo.isFile();
+  return esArchivo;
 };
 
 const verificarSiEsCarpeta = (ruta) => {
   const verifCarpeta = fs.lstatSync(ruta);
-  const carpeta = verifCarpeta.isDirectory();
-  return carpeta;
+  const esCarpeta = verifCarpeta.isDirectory();
+  return esCarpeta;
 };
 
-const esArchivoMD = (ruta) => {
-  const esMD = path.extname(ruta);
-  if (esMD === '.md') {
+const esArchivoMardown = (ruta) => {
+  const esMardown = path.extname(ruta);
+  if (esMardown === '.md') {
     return true;
   }
   return false;
 };
 
 const revisarDirectorio = (ruta) => {
-  const directorio = fs.readdirSync(ruta);
-  return directorio;
+  const arrayDirectorio = fs.readdirSync(ruta);
+  return arrayDirectorio;
 };
 
-const buscarArchivoMD = (ruta) => {
-  let arrayMD = [];
-  if (verificarSiEsArchivo(ruta) === true && esArchivoMD(ruta) === true) {
-    arrayMD.push(ruta);
+const buscarArchivoMardown = (ruta) => {
+  let arrayArchivosMardown = [];
+  if (verificarSiEsArchivo(ruta) === true && esArchivoMardown(ruta) === true) {
+    arrayArchivosMardown.push(ruta);
   } if (verificarSiEsCarpeta(ruta) === true) {
     revisarDirectorio(ruta).forEach((elemento) => {
-      const rutaAbs = path.join(ruta, elemento);
-      const arrDeArchivosEncontrados = buscarArchivoMD(rutaAbs);
-      arrayMD = arrayMD.concat(arrDeArchivosEncontrados);
+      const rutaAbsoluta = path.join(ruta, elemento);
+      const arrDeArchivosEncontrados = buscarArchivoMardown(rutaAbsoluta);
+      arrayArchivosMardown = arrayArchivosMardown.concat(arrDeArchivosEncontrados);
     });
-    return arrayMD;
+    return arrayArchivosMardown;
   }
-  return arrayMD;
+  return arrayArchivosMardown;
 };
 
-const leerArchivo = (ruta) => {
-  const leyendoArchivos = fs.readFileSync(ruta, 'utf-8');
-  return leyendoArchivos;
+const leerContenidoArchivoMardown = (ruta) => {
+  const InfContieneArchivo = fs.readFileSync(ruta, 'utf-8');
+  return InfContieneArchivo;
 };
 
 const extraerLinksArchivos = (ruta) => {
-  const links = [];
-  const leyendo = buscarArchivoMD(ruta);
-  leyendo.forEach((elemento) => {
+  const arrayLinks = [];
+  const buscaArchivosMD = buscarArchivoMardown(ruta);
+  buscaArchivosMD.forEach((elemento) => {
     const renderer = new marked.Renderer();
     renderer.link = (href, title, text) => {
-      links.push({
+      arrayLinks.push({
         href,
         text,
         file: ruta,
       });
     };
-    marked(leerArchivo(elemento), { renderer });
+    marked(leerContenidoArchivoMardown(elemento), { renderer });
   });
-  return links;
+  return arrayLinks;
 };
 
 
 const funciones = {
-  exisRutaAbsoluta: rutaAbsoluta,
-  converRutaAbsoluta: convertirAbsoluta,
-  verificaArchivo: verificarSiEsArchivo,
-  verificaCarpeta: verificarSiEsCarpeta,
-  esUnArchivoMD: esArchivoMD,
-  revisaDirectorio: revisarDirectorio,
-  buscaArchivoMD: buscarArchivoMD,
-  leeArchivos: leerArchivo,
-  leyendoInfoArchivos: extraerLinksArchivos,
+  esRutaAbsoluta,
+  convertirRutaAbsoluta,
+  verificarSiEsArchivo,
+  verificarSiEsCarpeta,
+  esArchivoMardown,
+  revisarDirectorio,
+  buscarArchivoMardown,
+  leerContenidoArchivoMardown,
+  extraerLinksArchivos,
 };
 
 module.exports = funciones;

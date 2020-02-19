@@ -3,7 +3,7 @@ const funciones = require('./functions');
 
 const validarLinks = (ruta) => {
   const arraylinksValidados = [];
-  funciones.leyendoInfoArchivos(ruta).forEach((elemento) => {
+  funciones.extraerLinksArchivos(ruta).forEach((elemento) => {
     arraylinksValidados.push(fetch(elemento.href)
       .then((res) => {
         let mensaje;
@@ -30,9 +30,4 @@ const validarLinks = (ruta) => {
 // Promise.all(validarLinks('/home/laboratoria/Escritorio/LIM011-fe-md-links/test-readme/node.md'))
 //   .then((res) => console.log(res));
 
-const valida = {
-  validaLinks: validarLinks,
-};
-
-
-module.exports = valida;
+module.exports = validarLinks;

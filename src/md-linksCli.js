@@ -6,7 +6,7 @@ const stats = require('./stats');
 const funcionCli = (ruta, opcion, opcion2) => {
   if (fs.existsSync(ruta)) {
     if (opcion === '--stats' && opcion2 === '--validate') {
-      return mdlinks.mdLinks(ruta, true)
+      return mdlinks(ruta, true)
         .then((resp) => stats.statsValidado(resp))
         .then((res) => {
           const string = `Total: ${res.Total}\nUnique: ${res.Unique}\nBroken: ${res.Broken}`;
@@ -14,7 +14,7 @@ const funcionCli = (ruta, opcion, opcion2) => {
         });
     }
     if (opcion === '--validate') {
-      return mdlinks.mdLinks(ruta, true)
+      return mdlinks(ruta, true)
         .then((res) => {
           let validLinks = '';
           res.forEach((elemento) => {
@@ -24,14 +24,14 @@ const funcionCli = (ruta, opcion, opcion2) => {
         });
     }
     if (opcion === '--stats') {
-      return mdlinks.mdLinks(ruta, true)
+      return mdlinks(ruta, true)
         .then((resp) => stats.stats(resp))
         .then((res) => {
           const string = `Total: ${res.Total}\nUnique: ${res.Unique}`;
           return string;
         });
     }
-    return mdlinks.mdLinks(ruta, false)
+    return mdlinks(ruta, false)
       .then((res) => {
         let validLink = '';
         res.forEach((elemento) => {

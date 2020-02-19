@@ -1,15 +1,15 @@
 
 const funciones = require('./functions');
-const valida = require('./validate');
+const validaLinks = require('./validate');
 
 const mdLinks = (path, options) => {
   const promesaMDLinks = new Promise((resolve) => {
-    const rutaAb = funciones.converRutaAbsoluta(path);
+    const rutaAbsoluta = funciones.convertirRutaAbsoluta(path);
     if (options === true) {
-      valida.validaLinks(rutaAb)
+      validaLinks(rutaAbsoluta)
         .then((res) => resolve(res));
     } else {
-      resolve(funciones.leyendoInfoArchivos(rutaAb));
+      resolve(funciones.extraerLinksArchivos(rutaAbsoluta));
     }
   });
   return promesaMDLinks;
@@ -19,8 +19,4 @@ const mdLinks = (path, options) => {
 //   .then((res) => console.log(res));
 
 
-const mdLink = {
-  mdLinks,
-};
-
-module.exports = mdLink;
+module.exports = mdLinks;
