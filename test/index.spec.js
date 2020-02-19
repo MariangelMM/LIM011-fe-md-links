@@ -1,3 +1,4 @@
+const path = require('path');
 const fetchMock = require('fetch-mock');
 const funciones = require('../src/index');
 const validar = require('../src/validar');
@@ -7,7 +8,7 @@ const funcionCli = require('../src/md-linksCli');
 
 fetchMock.mock('*', 200);
 
-const ruta = '/home/laboratoria/Escritorio/LIM011-fe-md-links/test-readme/node.md';
+const ruta = path.join(process.cwd(), 'test-readme', 'node.md');
 
 const linkvalidados = [
   {
@@ -15,16 +16,14 @@ const linkvalidados = [
     message: 'fail',
     href: 'https://nodejs.org/esesd/',
     text: 'Node.js',
-    file:
- '/home/laboratoria/Escritorio/LIM011-fe-md-links/test-readme/node.md',
+    file: path.join(process.cwd(), 'test-readme', 'node.md'),
   },
   {
     status: 200,
     message: 'ok',
     href: 'https://developers.google.com/v8/',
     text: 'motor de JavaScript V8 de Chrome',
-    file:
- '/home/laboratoria/Escritorio/LIM011-fe-md-links/test-readme/node.md',
+    file: path.join(process.cwd(), 'test-readme', 'node.md'),
   },
 ];
 
@@ -32,14 +31,12 @@ const links = [
   {
     href: 'https://nodejs.org/esesd/',
     text: 'Node.js',
-    file:
- '/home/laboratoria/Escritorio/LIM011-fe-md-links/test-readme/node.md',
+    file: path.join(process.cwd(), 'test-readme', 'node.md'),
   },
   {
     href: 'https://developers.google.com/v8/',
     text: 'motor de JavaScript V8 de Chrome',
-    file:
- '/home/laboratoria/Escritorio/LIM011-fe-md-links/test-readme/node.md',
+    file: path.join(process.cwd(), 'test-readme', 'node.md'),
   },
 ];
 
@@ -52,7 +49,7 @@ describe('Leyendo la ruta', () => {
     expect(funciones.exisRutaAbsoluta('.')).toBe(false);
   });
   it('Deberia retornar true si la ruta es absoluta', () => {
-    expect(funciones.exisRutaAbsoluta('/home/laboratoria/Escritorio/LIM011-fe-md-links/test-readme/mardown.md')).toBe(true);
+    expect(funciones.exisRutaAbsoluta(path.join(process.cwd(), 'test-readme', 'mardown.md'))).toBe(true);
   });
   it('Deberia retornar false si la ruta no es absoluta', () => {
     expect(funciones.exisRutaAbsoluta('package.json')).toBe(false);
@@ -64,7 +61,7 @@ describe('Convertir ruta', () => {
     expect(typeof funciones.converRutaAbsoluta).toBe('function');
   });
   it('Deberia convertir una ruta relativa a ruta absoluta', () => {
-    expect(funciones.converRutaAbsoluta('mardown.md')).toBe('/home/laboratoria/Escritorio/LIM011-fe-md-links/mardown.md');
+    expect(funciones.converRutaAbsoluta('mardown.md')).toBe(path.join(process.cwd(), 'mardown.md'));
   });
 });
 
@@ -73,10 +70,10 @@ describe('Verificar si la ruta es un archivo', () => {
     expect(typeof funciones.verificaArchivo).toBe('function');
   });
   it('Deberia retornar true si la ruta es un archivo', () => {
-    expect(funciones.verificaArchivo('/home/laboratoria/Escritorio/LIM011-fe-md-links/test-readme/mardown.md')).toBe(true);
+    expect(funciones.verificaArchivo(path.join(process.cwd(), 'test-readme', 'mardown.md'))).toBe(true);
   });
   it('Deberia retornar false si la ruta es un directorio', () => {
-    expect(funciones.verificaArchivo('/home/laboratoria/Escritorio/LIM011-fe-md-links/test-readme/')).toBe(false);
+    expect(funciones.verificaArchivo(path.join(process.cwd(), 'test-readme'))).toBe(false);
   });
 });
 
@@ -85,10 +82,10 @@ describe('Verificar si la ruta es una carpeta', () => {
     expect(typeof funciones.verificaCarpeta).toBe('function');
   });
   it('Deberia retornar false si la ruta es un archivo', () => {
-    expect(funciones.verificaCarpeta('/home/laboratoria/Escritorio/LIM011-fe-md-links/test-readme/mardown.md')).toBe(false);
+    expect(funciones.verificaCarpeta(path.join(process.cwd(), 'test-readme', 'mardown.md'))).toBe(false);
   });
   it('Deberia retornar true si la ruta es un directorio', () => {
-    expect(funciones.verificaCarpeta('/home/laboratoria/Escritorio/LIM011-fe-md-links/test-readme')).toBe(true);
+    expect(funciones.verificaCarpeta(path.join(process.cwd(), 'test-readme'))).toBe(true);
   });
 });
 
@@ -97,10 +94,10 @@ describe('Verificar si es un archivo mardown', () => {
     expect(typeof funciones.esUnArchivoMD).toBe('function');
   });
   it('Deberia retornar true si la ruta es un archivo MD', () => {
-    expect(funciones.esUnArchivoMD('/home/laboratoria/Escritorio/LIM011-fe-md-links/test-readme/mardown.md')).toBe(true);
+    expect(funciones.esUnArchivoMD(path.join(process.cwd(), 'test-readme', 'mardown.md'))).toBe(true);
   });
   it('Deberia retornar false si la ruta no es un archivo MD', () => {
-    expect(funciones.esUnArchivoMD('/home/laboratoria/Escritorio/LIM011-fe-md-links/package.json')).toBe(false);
+    expect(funciones.esUnArchivoMD(path.join(process.cwd(), 'package.json'))).toBe(false);
   });
 });
 
@@ -110,10 +107,9 @@ describe('Verificar si dentro de la carpeta hay un archivos', () => {
     expect(typeof funciones.revisaDirectorio).toBe('function');
   });
   it('Deberia retornar un arreglo con los archivos', () => {
-    expect(funciones.revisaDirectorio('/home/laboratoria/Escritorio/LIM011-fe-md-links/')).toEqual(['.eslintrc.json',
+    expect(funciones.revisaDirectorio(path.join(process.cwd()))).toEqual(['.eslintrc.js',
       '.git',
       '.gitignore',
-      '.vscode',
       'README.md',
       'coverage',
       'jest.config.js',
@@ -131,7 +127,7 @@ describe('Verifica si en la ruta hay archivos mardown', () => {
     expect(typeof funciones.buscaArchivoMD).toBe('function');
   });
   it('Deberia retornar true las rutas de los archivos mardown', () => {
-    expect(funciones.buscaArchivoMD('/home/laboratoria/Escritorio/LIM011-fe-md-links/test-readme')).toStrictEqual(['/home/laboratoria/Escritorio/LIM011-fe-md-links/test-readme/mardown.md', '/home/laboratoria/Escritorio/LIM011-fe-md-links/test-readme/node.md']);
+    expect(funciones.buscaArchivoMD(path.join(process.cwd(), 'test-readme'))).toStrictEqual(['/home/laboratoria/Escritorio/LIM011-fe-md-links/test-readme/mardown.md', '/home/laboratoria/Escritorio/LIM011-fe-md-links/test-readme/node.md']);
   });
 });
 
@@ -149,17 +145,17 @@ describe('Extrae informacion de archivo', () => {
     expect(typeof funciones.leyendoInfoArchivos).toBe('function');
   });
   it('Deberia retornar los links dentro de un archivo MD', () => {
-    expect(funciones.leyendoInfoArchivos('/home/laboratoria/Escritorio/LIM011-fe-md-links/test-readme/node.md'))
+    expect(funciones.leyendoInfoArchivos(path.join(process.cwd(), 'test-readme', 'node.md')))
       .toStrictEqual([
         {
           href: 'https://nodejs.org/esesd/',
           text: 'Node.js',
-          file: '/home/laboratoria/Escritorio/LIM011-fe-md-links/test-readme/node.md',
+          file: path.join(process.cwd(), 'test-readme', 'node.md'),
         },
         {
           href: 'https://developers.google.com/v8/',
           text: 'motor de JavaScript V8 de Chrome',
-          file: '/home/laboratoria/Escritorio/LIM011-fe-md-links/test-readme/node.md',
+          file: path.join(process.cwd(), 'test-readme', 'node.md'),
         },
       ]);
   });

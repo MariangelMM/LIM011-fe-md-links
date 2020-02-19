@@ -25,12 +25,17 @@
   "homepage": "https://github.com/MariangelMoraMarquez/LIM011-fe-md-links#readme",
   "devDependencies": {
     "eslint": "^6.8.0",
+    "eslint-config-airbnb": "^18.0.1",
     "eslint-config-airbnb-base": "^14.0.0",
-    "eslint-plugin-import": "^2.20.0",
+    "eslint-plugin-import": "^2.20.1",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.18.3",
+    "eslint-plugin-react-hooks": "^1.7.0",
     "jest": "^25.1.0"
   },
   "dependencies": {
     "fetch-mock": "^9.0.0-beta.2",
+    "init": "^0.1.2",
     "marked": "^0.8.0",
     "node-fetch": "^2.6.0"
   },
