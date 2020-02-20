@@ -4,8 +4,8 @@
   "description": "libreria que busca links",
   "main": "md-links.js",
   "scripts": {
-    "test": "jest --verbose --coverage --detectOpenHandles"
-  },
+    "test": "jest --verbose --coverage"
+   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/MariangelMoraMarquez/LIM011-fe-md-links.git"
@@ -36,7 +36,6 @@
   },
   "dependencies": {
     "fetch-mock": "^9.0.0-beta.2",
-    "init": "^0.1.2",
     "marked": "^0.8.0",
     "node-fetch": "^2.6.0"
   },

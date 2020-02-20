@@ -5,7 +5,7 @@ const stats = require('./stats');
 
 const funcionCli = (ruta, opcion, opcion2) => {
   if (fs.existsSync(ruta)) {
-    if (opcion === '--stats' && opcion2 === '--validate') {
+    if ((opcion === '--stats' && opcion2 === '--validate') || (opcion === '--validate' && opcion2 === '--stats')) {
       return mdlinks(ruta, true)
         .then((resp) => stats.statsValidado(resp))
         .then((res) => {
