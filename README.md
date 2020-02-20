@@ -8,7 +8,7 @@ Es una herramienta creada usando Node.js, que lee y analiza archivos en formato 
 
 ## Documentación técnica de la librería:
 
-El módulo es instalable via npm install MariangelMM/LIM011-fe-md-links -g . Este módulo también se puede incluir un ejecutable que podamos invocar en la línea de comando como una interfaz que podamos importar con require para usarlo programáticamente.
+El módulo es instalable via npm install MariangelMM/LIM011-fe-md-links. Este módulo también se puede incluir un ejecutable que podamos invocar en la línea de comando como una interfaz que podamos importar con require para usarlo programáticamente.
 
 #### Argumentos:
 
